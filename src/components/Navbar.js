@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NavBar() {
     return (
-        <div className="App">
+        <div className="NavBar navbar--fixed-top">
           <Navbar bg="dark" data-bs-theme="dark">
             <Container>
               <Navbar.Brand href="#home">hackOMSCSLogo</Navbar.Brand>
