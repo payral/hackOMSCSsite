@@ -1,9 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
 import NavBar from './components/Navbar.js';
 import FAQ from './components/FAQ.js';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import './matrix.js';
+import './App.css';
 
 function App() {
   return (
@@ -12,7 +11,8 @@ function App() {
        <div id="home" className="col-md-5 p-lg-5 mx-auto my-5">
         <h1 className="display-4 font-weight-normal">HackOMSCS</h1>
         <p className="lead font-weight-normal">OMSCS's First Hackathon.</p>
-        <a className="btn btn-outline-secondary" href="#">Apply Now</a>
+         {/* eslint-disable-next-line */}
+         <a className="btn btn-outline-secondary" href="#">Apply Now</a>
       </div>
       <div id="about" className="col-md-5 p-lg-5 mx-auto my-5">
         <h2 className="display-7 font-weight-normal">About</h2>
@@ -39,36 +39,7 @@ function App() {
       <p>Footer here with website icons and social media links</p>
     </footer>
     </div>
-    
-    
-
   );
 }
-
-
-
-
-/**
- function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
- */
 
 export default App;

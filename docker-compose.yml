@@ -1,8 +1,18 @@
 version: "3.9"
 services:
+  hack-omscs-dev:
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - type: bind
+        source: .
+        target: /usr/src/app
+    command: npm run start
   hack-omscs:
     build:
       context: .
     ports:
       - "3000:3000"
-    command: npm run startn
+    command: npm run start
