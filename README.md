@@ -8,3 +8,4 @@ To start the app in development mode
 
 - https://github.com/docker/awesome-compose
 - https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/
+- https://github.com/remix-run/react-router/blob/dev/examples/basic/src/main.tsx
