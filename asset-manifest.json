@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hackOMSCSsite/static/css/main.1f2fef78.css",
+    "main.js": "/hackOMSCSsite/static/js/main.4c90fb31.js",
+    "static/js/787.a01d0a69.chunk.js": "/hackOMSCSsite/static/js/787.a01d0a69.chunk.js",
+    "index.html": "/hackOMSCSsite/index.html",
+    "main.1f2fef78.css.map": "/hackOMSCSsite/static/css/main.1f2fef78.css.map",
+    "main.4c90fb31.js.map": "/hackOMSCSsite/static/js/main.4c90fb31.js.map",
+    "787.a01d0a69.chunk.js.map": "/hackOMSCSsite/static/js/787.a01d0a69.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f2fef78.css",
+    "static/js/main.4c90fb31.js"
+  ]
+}
