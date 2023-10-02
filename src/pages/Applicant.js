@@ -24,6 +24,7 @@ const Applicant = () => {
       return accessTokenKV[1];
     },
     retry: 1,
+    retryDelay: 500, // ms
   });
 
   const { isLoading, isError, data: user } = useQuery({
@@ -33,8 +34,8 @@ const Applicant = () => {
     return fetchUserQuery(accessToken);
     },
     enabled: !!accessToken,
-    retry: 3,
-    retryDelay:1000, // ms
+    retry: 2,
+    retryDelay: 500, // ms
   });
   if ((isErrorAT && !isLoadingAT) || (!isLoading && isError)) {
     return <Navigate to='/' />;
