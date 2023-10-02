@@ -1,40 +1,54 @@
 import { React } from 'react';
-import { redirect, useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
+
+import { useQuery } from '@tanstack/react-query';
+
 import { fetchUserQuery } from '../data/data';
 
 const Applicant = () => {
-  const { data: accessToken, isError } = useQuery({
+  const location = useLocation();
+
+  const {
+    data: accessToken,
+    isError: isErrorAT,
+    isLoading: isLoadingAT
+  } = useQuery({
     queryKey: ['access_token'],
     keepPreviousData: true,
-    queryFn: () => {
-      const location = useLocation();
+    queryFn: async () => {
       const hashParam = location.hash.substring(1);
       const accessTokenKV = hashParam.split('=');
-      return async () => {
-        if (accessTokenKV[0] !== 'access_token') {
-          throw new Error('No access_token found in location object');
-        }
-        return accessTokenKV[1];
+      if (accessTokenKV[0] !== 'access_token') {
+        throw new Error('No access_token found in location object');
       }
+      return accessTokenKV[1];
     },
+    retry: 1,
   });
-  // Check for access token in persisted query state or in location object. Redirect to home if no access token
-  if (isError && !accessToken) {
-    return redirect('/');
-  }
-  const { data: user, isLoading } = useQuery({
+
+  const { isLoading, isError, data: user } = useQuery({
     queryKey: ['user', accessToken],
-    queryFn: () => fetchUserQuery(accessToken),
+    queryFn: ({ queryKey }) => {
+    const [ , accessToken ] = queryKey;
+    return fetchUserQuery(accessToken);
+    },
     enabled: !!accessToken,
+    retry: 3,
+    retryDelay:1000, // ms
   });
-  if (isLoading) {
-    <div>
+  if ((isErrorAT && !isLoadingAT) || (!isLoading && isError)) {
+    return <Navigate to='/' />;
+  }
+  if (isLoadingAT || isLoading) {
+    return (
+      <div>
       <h1>LOADING SPINNER</h1>
     </div>
+    );
   }
   return (
     <div id='home' className='col-md-5 p-lg-5 mx-auto my-5'>
-      <h1 className='display-4 font-weight-normal'>Applicant</h1>
+      <h1 className='display-4 font-weight-normal'>{JSON.stringify(user)}</h1>
     </div>
   );
 }

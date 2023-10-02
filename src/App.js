@@ -1,5 +1,5 @@
-import { QueryClient } from 'react-query';
 import { Routes, Route } from 'react-router-dom';
+import { QueryClient } from '@tanstack/react-query';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
 
@@ -43,7 +43,7 @@ function App() {
           <Route path='sponsors' element={<Sponsors />} />
           <Route path='*' element={<Home />} />
         </Routes>
-        <footer class='mt-auto'>
+        <footer className='mt-auto'>
           <p>Footer here with website icons and social media links</p>
         </footer>
       </div>
