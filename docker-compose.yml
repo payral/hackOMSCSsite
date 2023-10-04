@@ -10,9 +10,3 @@ services:
         source: .
         target: /usr/src/app
     command: npm run start
-  hack-omscs:
-    build:
-      context: .
-    ports:
-      - "3000:3000"
-    command: npm run start
