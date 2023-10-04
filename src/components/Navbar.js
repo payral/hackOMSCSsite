@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function NavBar() {
     return (
-        <div className='NavBar navbar--fixed-top'>
-          <Navbar bg='dark' data-bs-theme='dark'>
+          <Navbar bg='dark' data-bs-theme='dark' fixed="top">
             <Container>
               <Navbar.Brand>hackOMSCSLogo</Navbar.Brand>
               <Nav className='d-flex justify-content-end'>
@@ -44,7 +44,6 @@ function NavBar() {
               </Nav>
             </Container>
           </Navbar>
-        </div>
       );
   }
   
